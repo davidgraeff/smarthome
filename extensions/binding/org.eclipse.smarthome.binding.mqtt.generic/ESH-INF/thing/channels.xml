@@ -21,18 +21,18 @@
 				<description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
 				<advanced>true</advanced>
 			</parameter>
-            <parameter name="formatBeforePublish" type="text">
-                <label>Outgoing value format</label>
-                <description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
-                <advanced>true</advanced>
-                <default>%s</default>
-            </parameter>
-            <parameter name="retained" type="boolean">
-                <label>Retained</label>
-                <description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
-                <default>false</default>
-                <advanced>true</advanced>
-            </parameter>
+			<parameter name="formatBeforePublish" type="text">
+				<label>Outgoing value format</label>
+				<description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
+				<advanced>true</advanced>
+				<default>%s</default>
+			</parameter>
+			<parameter name="retained" type="boolean">
+				<label>Retained</label>
+				<description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
+				<default>false</default>
+				<advanced>true</advanced>
+			</parameter>
 
 			<parameter name="allowedStates" type="text">
 				<label>Allowed states</label>
@@ -45,56 +45,56 @@
 	<channel-type id="Number">
 		<item-type>Number</item-type>
 		<label>Number value</label>
-        <config-description-ref uri="mqtt:number_channel"></config-description-ref>
+		<config-description-ref uri="mqtt:number_channel"></config-description-ref>
 	</channel-type>
-	
-    <channel-type id="NumberLength">
-        <item-type>Number:Length</item-type>
-        <label>Length</label>
-        <description>A length in Meter (m) [metric] or Inch (in) [imperial]</description>
-        <config-description-ref uri="mqtt:number_channel"></config-description-ref>
-        <state pattern="%.1f %unit%" />
-    </channel-type>
-    
-    <channel-type id="NumberTemperature">
-        <item-type>Number:Temperature</item-type>
-        <label>Temperature</label>
-        <description>A temperature in Celsius (°C) [metric] or Fahrenheit (°F) [imperial]</description>
-        <config-description-ref uri="mqtt:number_channel"></config-description-ref>
-        <state pattern="%.1f %unit%" />
-    </channel-type>
 
-    <channel-type id="NumberPressure">
-        <item-type>Number:Pressure</item-type>
-        <label>Pressure</label>
-        <description>A pressure in Hectopascal (hPa) [metric] or Inch of mercury (inHg) [imperial]</description>
-        <config-description-ref uri="mqtt:number_channel"></config-description-ref>
-        <state pattern="%.1f %unit%" />
-    </channel-type>
+	<channel-type id="NumberLength">
+		<item-type>Number:Length</item-type>
+		<label>Length</label>
+		<description>A length in Meter (m) [metric] or Inch (in) [imperial]</description>
+		<state pattern="%.1f %unit%" />
+		<config-description-ref uri="mqtt:number_channel"></config-description-ref>
+	</channel-type>
 
-    <channel-type id="NumberSpeed">
-        <item-type>Number:Speed</item-type>
-        <label>Speed</label>
-        <description>A speed in km/h [metric] or mph [imperial]</description>
-        <config-description-ref uri="mqtt:number_channel"></config-description-ref>
-        <state pattern="%.1f %unit%" />
-    </channel-type>
+	<channel-type id="NumberTemperature">
+		<item-type>Number:Temperature</item-type>
+		<label>Temperature</label>
+		<description>A temperature in Celsius (°C) [metric] or Fahrenheit (°F) [imperial]</description>
+		<state pattern="%.1f %unit%" />
+		<config-description-ref uri="mqtt:number_channel"></config-description-ref>
+	</channel-type>
 
-    <channel-type id="NumberIntensity">
-        <item-type>Number:Intensity</item-type>
-        <label>Intensity</label>
-        <description>An intensity in Irradiance (W/m2)</description>
-        <config-description-ref uri="mqtt:number_channel"></config-description-ref>
-        <state pattern="%.1f %unit%" />
-    </channel-type>
+	<channel-type id="NumberPressure">
+		<item-type>Number:Pressure</item-type>
+		<label>Pressure</label>
+		<description>A pressure in Hectopascal (hPa) [metric] or Inch of mercury (inHg) [imperial]</description>
+		<state pattern="%.1f %unit%" />
+		<config-description-ref uri="mqtt:number_channel"></config-description-ref>
+	</channel-type>
 
-    <channel-type id="NumberAngle">
-        <item-type>Number:Angle</item-type>
-        <label>Angle</label>
-        <description>An angle in Degree (°)</description>
-        <config-description-ref uri="mqtt:number_channel"></config-description-ref>
-        <state pattern="%.1f %unit%" />
-    </channel-type>
+	<channel-type id="NumberSpeed">
+		<item-type>Number:Speed</item-type>
+		<label>Speed</label>
+		<description>A speed in km/h [metric] or mph [imperial]</description>
+		<state pattern="%.1f %unit%" />
+		<config-description-ref uri="mqtt:number_channel"></config-description-ref>
+	</channel-type>
+
+	<channel-type id="NumberIntensity">
+		<item-type>Number:Intensity</item-type>
+		<label>Intensity</label>
+		<description>An intensity in Irradiance (W/m2)</description>
+		<state pattern="%.1f %unit%" />
+		<config-description-ref uri="mqtt:number_channel"></config-description-ref>
+	</channel-type>
+
+	<channel-type id="NumberAngle">
+		<item-type>Number:Angle</item-type>
+		<label>Angle</label>
+		<description>An angle in Degree (°)</description>
+		<state pattern="%.1f %unit%" />
+		<config-description-ref uri="mqtt:number_channel"></config-description-ref>
+	</channel-type>
 
 	<channel-type id="Dimmer">
 		<item-type>Dimmer</item-type>
@@ -108,23 +108,23 @@
 				<label>MQTT command topic</label>
 				<description>An MQTT topic that this thing will send a command to. This can be left empty</description>
 			</parameter>
-            <parameter name="transformationPattern" type="text">
-                <label>Incoming value transformation</label>
-                <description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
-                <advanced>true</advanced>
-            </parameter>
-            <parameter name="formatBeforePublish" type="text">
-                <label>Outgoing value format</label>
-                <description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
-                <advanced>true</advanced>
-                <default>%s</default>
-            </parameter>
-            <parameter name="retained" type="boolean">
-                <label>Retained</label>
-                <description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
-                <default>false</default>
-                <advanced>true</advanced>
-            </parameter>
+			<parameter name="transformationPattern" type="text">
+				<label>Incoming value transformation</label>
+				<description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
+				<advanced>true</advanced>
+			</parameter>
+			<parameter name="formatBeforePublish" type="text">
+				<label>Outgoing value format</label>
+				<description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
+				<advanced>true</advanced>
+				<default>%s</default>
+			</parameter>
+			<parameter name="retained" type="boolean">
+				<label>Retained</label>
+				<description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
+				<default>false</default>
+				<advanced>true</advanced>
+			</parameter>
 
 			<parameter name="min" type="decimal">
 				<label>Minimum value</label>
@@ -161,23 +161,23 @@
 				<label>MQTT command topic</label>
 				<description>An MQTT topic that this thing will send a command to.</description>
 			</parameter>
-            <parameter name="transformationPattern" type="text">
-                <label>Incoming value transformation</label>
-                <description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
-                <advanced>true</advanced>
-            </parameter>
-            <parameter name="formatBeforePublish" type="text">
-                <label>Outgoing value format</label>
-                <description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
-                <advanced>true</advanced>
-                <default>%s</default>
-            </parameter>
-            <parameter name="retained" type="boolean">
-                <label>Retained</label>
-                <description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
-                <default>false</default>
-                <advanced>true</advanced>
-            </parameter>
+			<parameter name="transformationPattern" type="text">
+				<label>Incoming value transformation</label>
+				<description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
+				<advanced>true</advanced>
+			</parameter>
+			<parameter name="formatBeforePublish" type="text">
+				<label>Outgoing value format</label>
+				<description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
+				<advanced>true</advanced>
+				<default>%s</default>
+			</parameter>
+			<parameter name="retained" type="boolean">
+				<label>Retained</label>
+				<description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
+				<default>false</default>
+				<advanced>true</advanced>
+			</parameter>
 
 			<parameter name="on" type="text">
 				<label>ON value</label>
@@ -202,23 +202,23 @@
 				<label>MQTT state topic</label>
 				<description>An MQTT topic that this thing will subscribe to, to receive the state.</description>
 			</parameter>
-            <parameter name="transformationPattern" type="text">
-                <label>Incoming value transformation</label>
-                <description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
-                <advanced>true</advanced>
-            </parameter>
-            <parameter name="formatBeforePublish" type="text">
-                <label>Outgoing value format</label>
-                <description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
-                <advanced>true</advanced>
-                <default>%s</default>
-            </parameter>
-            <parameter name="retained" type="boolean">
-                <label>Retained</label>
-                <description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
-                <default>false</default>
-                <advanced>true</advanced>
-            </parameter>
+			<parameter name="transformationPattern" type="text">
+				<label>Incoming value transformation</label>
+				<description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
+				<advanced>true</advanced>
+			</parameter>
+			<parameter name="formatBeforePublish" type="text">
+				<label>Outgoing value format</label>
+				<description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
+				<advanced>true</advanced>
+				<default>%s</default>
+			</parameter>
+			<parameter name="retained" type="boolean">
+				<label>Retained</label>
+				<description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
+				<default>false</default>
+				<advanced>true</advanced>
+			</parameter>
 
 			<parameter name="open" type="text">
 				<label>Open value</label>
@@ -248,84 +248,84 @@
 				<label>MQTT command topic</label>
 				<description>An MQTT topic that this thing will send a command to. This can be left empty which makes this channel read only. A read only channel cannot be set by you and only updates if the MQTT broker publishes a new value for the state topic.</description>
 			</parameter>
-            <parameter name="transformationPattern" type="text">
-                <label>Incoming value transformation</label>
-                <description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
-                <advanced>true</advanced>
-            </parameter>
-            <parameter name="formatBeforePublish" type="text">
-                <label>Outgoing value format</label>
-                <description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
-                <advanced>true</advanced>
-                <default>%s</default>
-            </parameter>
-            <parameter name="retained" type="boolean">
-                <label>Retained</label>
-                <description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
-                <default>false</default>
-                <advanced>true</advanced>
-            </parameter>
-            
-            <parameter name="on" type="text">
-                <label>ON value</label>
-                <description>A number (like 1, 10) or a string (like ON) that is recognised as on state.</description>
-                <default>ON</default>
-                <advanced>true</advanced>
-            </parameter>
-            <parameter name="off" type="text">
-                <label>OFF value</label>
-                <description>A number (like 0, -10) or a string (like OFF) that is recognised as off state.</description>
-                <default>OFF</default>
-                <advanced>true</advanced>
-            </parameter>
+			<parameter name="transformationPattern" type="text">
+				<label>Incoming value transformation</label>
+				<description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
+				<advanced>true</advanced>
+			</parameter>
+			<parameter name="formatBeforePublish" type="text">
+				<label>Outgoing value format</label>
+				<description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
+				<advanced>true</advanced>
+				<default>%s</default>
+			</parameter>
+			<parameter name="retained" type="boolean">
+				<label>Retained</label>
+				<description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
+				<default>false</default>
+				<advanced>true</advanced>
+			</parameter>
+
+			<parameter name="on" type="text">
+				<label>ON value</label>
+				<description>A number (like 1, 10) or a string (like ON) that is recognised as on state.</description>
+				<default>ON</default>
+				<advanced>true</advanced>
+			</parameter>
+			<parameter name="off" type="text">
+				<label>OFF value</label>
+				<description>A number (like 0, -10) or a string (like OFF) that is recognised as off state.</description>
+				<default>OFF</default>
+				<advanced>true</advanced>
+			</parameter>
 		</config-description>
 	</channel-type>
 
 
-    <channel-type id="ColorHSB">
-        <item-type>Color</item-type>
-        <label>Color value (Hue,Saturation,Brightness)</label>
-        <description></description>
-        <config-description>
-            <parameter name="stateTopic" type="text">
-                <label>MQTT state topic</label>
-                <description>An MQTT topic that this thing will subscribe to, to receive the state.</description>
-            </parameter>
-            <parameter name="commandTopic" type="text">
-                <label>MQTT command topic</label>
-                <description>An MQTT topic that this thing will send a command to. This can be left empty which makes this channel read only. A read only channel cannot be set by you and only updates if the MQTT broker publishes a new value for the state topic.</description>
-            </parameter>
-            <parameter name="transformationPattern" type="text">
-                <label>Incoming value transformation</label>
-                <description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
-                <advanced>true</advanced>
-            </parameter>
-            <parameter name="formatBeforePublish" type="text">
-                <label>Outgoing value format</label>
-                <description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
-                <advanced>true</advanced>
-                <default>%s</default>
-            </parameter>
-            <parameter name="retained" type="boolean">
-                <label>Retained</label>
-                <description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
-                <default>false</default>
-                <advanced>true</advanced>
-            </parameter>
-            
-            <parameter name="on" type="text">
-                <label>ON value</label>
-                <description>A number (like 1, 10) or a string (like ON) that is recognised as on state.</description>
-                <default>ON</default>
-                <advanced>true</advanced>
-            </parameter>
-            <parameter name="off" type="text">
-                <label>OFF value</label>
-                <description>A number (like 0, -10) or a string (like OFF) that is recognised as off state.</description>
-                <default>OFF</default>
-                <advanced>true</advanced>
-            </parameter>
-        </config-description>
-    </channel-type>
+	<channel-type id="ColorHSB">
+		<item-type>Color</item-type>
+		<label>Color value (Hue,Saturation,Brightness)</label>
+		<description></description>
+		<config-description>
+			<parameter name="stateTopic" type="text">
+				<label>MQTT state topic</label>
+				<description>An MQTT topic that this thing will subscribe to, to receive the state.</description>
+			</parameter>
+			<parameter name="commandTopic" type="text">
+				<label>MQTT command topic</label>
+				<description>An MQTT topic that this thing will send a command to. This can be left empty which makes this channel read only. A read only channel cannot be set by you and only updates if the MQTT broker publishes a new value for the state topic.</description>
+			</parameter>
+			<parameter name="transformationPattern" type="text">
+				<label>Incoming value transformation</label>
+				<description>Applies a transformation to an incoming MQTT topic value. A transformation example for a received JSON would be "JSONPATH:$.device.status.temperature" for a json {device: {status: { temperature: 23.2 }}}. Any supported transformation service can be used.</description>
+				<advanced>true</advanced>
+			</parameter>
+			<parameter name="formatBeforePublish" type="text">
+				<label>Outgoing value format</label>
+				<description>Format a value before it is published to the MQTT broker. The default is to just pass the channel/item state. If you want to apply a prefix, say "MYCOLOR,", you would use "MYCOLOR,%s". If you want to adjust the precision of a number to for example 4 digits, you would use "%.4f".</description>
+				<advanced>true</advanced>
+				<default>%s</default>
+			</parameter>
+			<parameter name="retained" type="boolean">
+				<label>Retained</label>
+				<description>The value will be published to the command topic as retained message. A retained value stays on the broker and can even be seen by MQTT clients that are subscribing at a later point in time.</description>
+				<default>false</default>
+				<advanced>true</advanced>
+			</parameter>
+
+			<parameter name="on" type="text">
+				<label>ON value</label>
+				<description>A number (like 1, 10) or a string (like ON) that is recognised as on state.</description>
+				<default>ON</default>
+				<advanced>true</advanced>
+			</parameter>
+			<parameter name="off" type="text">
+				<label>OFF value</label>
+				<description>A number (like 0, -10) or a string (like OFF) that is recognised as off state.</description>
+				<default>OFF</default>
+				<advanced>true</advanced>
+			</parameter>
+		</config-description>
+	</channel-type>
 
 </thing:thing-descriptions>
